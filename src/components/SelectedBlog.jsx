@@ -5,6 +5,7 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { Watch } from "react-loader-spinner";
 import { useAuthState } from "react-firebase-hooks/auth";
 import {  motion } from "framer-motion";
+import CommentSection from "./CommentSection";
 
 const SelectedBlog = () => {
 	const blogRef = firestore.collection("blogs");
@@ -95,6 +96,7 @@ const SelectedBlog = () => {
 					>
 						{blog.desc}
 					</motion.p>
+          <CommentSection />
 				</motion.div>
 			) : (
 				<div className="flex justify-center items-center w-screen h-screen">

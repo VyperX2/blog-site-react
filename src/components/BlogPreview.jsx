@@ -6,9 +6,15 @@ import BlogContext from "../context/BlogContext";
 import { motion } from "framer-motion";
 import { useCollection } from "react-firebase-hooks/firestore";
 
-const BlogPreview = ({ title, desc, img, timestamp, index , createdBy , photoUrl }) => {
-
-
+const BlogPreview = ({
+	title,
+	desc,
+	img,
+	timestamp,
+	index,
+	createdBy,
+	photoUrl,
+}) => {
 	const [user] = useAuthState(auth);
 	const { photoURL, displayName } = user;
 	const date = timestamp?.toDate().toDateString();
@@ -19,9 +25,9 @@ const BlogPreview = ({ title, desc, img, timestamp, index , createdBy , photoUrl
 
 	return (
 		<motion.div
-			animate={{ opacity: 1 ,   translateY: 0}}
-			initial={{ opacity: 0,   translateY: -30 }}
-			transition={{ ease:"easeOut" , duration:0.3 , delay: index * 0.1 }}
+			animate={{ opacity: 1, translateY: 0, translateX: 0 }}
+			initial={{ opacity: 0, translateY: -50, translateX: 50 }}
+			transition={{ duration: 0.3, delay: index * 0.05 }}
 			onClick={() => setBlogId(blogDocs.docs[index].id)}
 			className="flex flex-col w-80 border rounded-md overflow-hidden h-64 shadow-md hover:scale-110 transition-all cursor-pointer "
 		>
